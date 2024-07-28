@@ -213,4 +213,4 @@ university
 college
 academy
 courses
-edo.co
+edu.co

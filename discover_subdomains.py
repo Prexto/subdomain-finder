@@ -1,31 +1,30 @@
-import requests
+import aiohttp
+import asyncio
 
-def discover_subdomains_and_tlds(domain, tlds):
-    with open('subdomains.txt', 'r') as file:
-        subdomains = file.read().splitlines()
-    
-    discovered_subdomains = []
-    
-    for subdomain in subdomains:
-        for tld in tlds:
-            url = f"http://{subdomain}.{domain}.{tld}"
-            try:
-                response = requests.get(url)
-                if response.status_code == 200:
-                    print(f"[+] Active subdomain detected: {url}")
-                    discovered_subdomains.append(url)
-                else:
-                    print(f"[-] {url} does not exist")
-            except requests.ConnectionError:
-                print(f"[-] {url} does not exist or cannot be reached")
-    
-    return discovered_subdomains
+async def fetch(session, url):
+    for scheme in ['http', 'https']:
+        full_url = f"{scheme}://{url}"
+        try:
+            async with session.get(full_url) as response:
+                if response.status == 200:
+                    print(f"[+] Active subdomain detected: {full_url}")
+                    return full_url
+        except aiohttp.ClientError as e:
+            print(f"[-] Error with {full_url}: {e}")
+    return None
+
+async def discover_subdomains_and_tlds(domain, tlds, subdomains):
+    async with aiohttp.ClientSession() as session:
+        tasks = []
+        for subdomain in subdomains:
+            for tld in tlds:
+                url = f"{subdomain}.{domain}.{tld}"
+                tasks.append(fetch(session, url))
+        results = await asyncio.gather(*tasks)
+    return [result for result in results if result]
 
 def is_valid_domain(domain):
-    # Ensure the domain does not contain any additional dots
-    if domain.count('.') > 0:
-        return False
-    return True
+    return domain.count('.') == 0
 
 if __name__ == "__main__":
     while True:
@@ -37,7 +36,10 @@ if __name__ == "__main__":
 
     with open('tlds.txt', 'r') as file:
         tlds = file.read().splitlines()
-    discovered_subdomains = discover_subdomains_and_tlds(domain, tlds)
+    with open('subdomains.txt', 'r') as file:
+        subdomains = file.read().splitlines()
+    
+    discovered_subdomains = asyncio.run(discover_subdomains_and_tlds(domain, tlds, subdomains))
     print("\nDiscovered subdomains:")
     for sub in discovered_subdomains:
         print(sub)
