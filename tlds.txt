@@ -1,0 +1,9 @@
+com
+net
+org
+info
+biz
+co
+io
+dev
+ai
