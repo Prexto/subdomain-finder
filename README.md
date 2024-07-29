@@ -95,8 +95,12 @@ The terminal will display the total execution time, the number of domains discov
 
 ## License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Contributing
 
 Contributions are welcome. Please open issues or submit pull requests for any improvements or suggestions.
+
+## Author
+
+- Prexto - [https://github.com/Prexto](https://github.com/Prexto)
