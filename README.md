@@ -20,14 +20,15 @@ Discover Domains is a Python script designed for efficient domain and subdomain 
    git clone https://github.com/Prexto/subdomain-finder.git
    ```
 
-2. Navigate to the Project Directory
+**2. Navigate to the Project Directory**
 
 Change to the project directory:
+
 ```bash
 cd discover-domains
 ```
 
-3. Install Python Dependencies
+**3. Install Python Dependencies**
 
 Ensure you have Python 3.7 or higher installed. Install the necessary Python packages using the provided requirements.txt file:
 
@@ -37,15 +38,16 @@ pip install -r requirements.txt
 
 This will install the following required packages:
 
-aiohttp
+- aiohttp
 
-colorama
+- colorama
 
 ## Usage
 
 **1. Run the Script**
 
 Execute the script via the command line:
+
 ```bash
 python discover_subdomains.py
 ```
@@ -73,7 +75,7 @@ Option 3 performs both analyses and combines results into a single file.
 
 After selecting an option, you will be prompted to enter the number of concurrent requests. The acceptable range is between 10 and 200. Enter a number within this range and press Enter.
 
-Note: Using more than 100 concurrent requests may overload the system. A warning will be displayed if you choose a value greater than 100.
+**NOTE: Using more than 100 concurrent requests may overload the system. A warning will be displayed if you choose a value greater than 100.**
 
 **4. Provide Domain**
 
@@ -92,7 +94,9 @@ Results will be saved in the output directory:
 The terminal will display the total execution time, the number of domains discovered, and the file paths where results are saved.
 
 ## License
+
 This project is licensed under the MIT License. See the LICENSE file for details.
 
 ## Contributing
+
 Contributions are welcome. Please open issues or submit pull requests for any improvements or suggestions.
