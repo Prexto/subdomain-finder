@@ -151,7 +151,7 @@ async def menu():
             else:
                 print(f"{Fore.RED}Invalid domain. Please enter the base domain without any subdomains or TLDs.{Style.RESET_ALL}")
         
-        with open('tlds.txt', 'r') as file:
+        with open('temp.txt', 'r') as file:
             tlds = file.read().splitlines()
         with open('subdomains.txt', 'r') as file:
             subdomains = file.read().splitlines()
