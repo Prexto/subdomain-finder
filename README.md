@@ -38,6 +38,7 @@ pip install -r requirements.txt
 This will install the following required packages:
 
 aiohttp
+
 colorama
 
 ## Usage
@@ -52,6 +53,7 @@ python discover_subdomains.py
 
 Once the script starts, you will be presented with an interactive menu. The available options are:
 
+```bash
 1: Analyze subdomains only
 
 2: Analyze TLDs only
@@ -59,6 +61,7 @@ Once the script starts, you will be presented with an interactive menu. The avai
 3: Analyze both subdomains and TLDs
 
 4: Exit the script
+```
 
 Selecting an Option:
 
@@ -85,6 +88,7 @@ The script will process the domain based on the selected options and concurrency
 Results will be saved in the output directory:
 
 **Subdomains: domain_discovered_subdomains.txt**
+
 **TLDs: domain_discovered_tlds.txt**
 
 The terminal will display the total execution time, the number of domains discovered, and the file paths where results are saved.
