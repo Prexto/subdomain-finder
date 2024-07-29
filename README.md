@@ -42,28 +42,26 @@ aiohttp
 colorama
 
 ## Usage
-1. Run the Script
+
+**1. Run the Script**
 
 Execute the script via the command line:
 ```bash
 python discover_subdomains.py
 ```
 
-2. Interactive Menu
+**2. Interactive Menu**
 
 Once the script starts, you will be presented with an interactive menu. The available options are:
 
 ```bash
 1: Analyze subdomains only
-
 2: Analyze TLDs only
-
 3: Analyze both subdomains and TLDs
-
 4: Exit the script
 ```
 
-Selecting an Option:
+**Selecting an Option:**
 
 Enter the number corresponding to the desired option and press Enter.
 
@@ -71,17 +69,17 @@ For options 1 and 2, the script will perform the chosen analysis and output the 
 
 Option 3 performs both analyses and combines results into a single file.
 
-3. Set Concurrency Level
+**3. Set Concurrency Level**
 
 After selecting an option, you will be prompted to enter the number of concurrent requests. The acceptable range is between 10 and 200. Enter a number within this range and press Enter.
 
 Note: Using more than 100 concurrent requests may overload the system. A warning will be displayed if you choose a value greater than 100.
 
-4. Provide Domain
+**4. Provide Domain**
 
 The script will then prompt you to enter the base domain (e.g., example), without any TLDs or subdomains. Input the domain and press Enter.
 
-5. Results and Output
+**5. Results and Output**
 
 The script will process the domain based on the selected options and concurrency level.
 
